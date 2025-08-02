@@ -56,7 +56,7 @@ const updatePriceDisplay = (item, button, mode) => {
     // note: determine which price display to update based on the button
     const priceIndex = Array.from(buttons).indexOf(button);
     if (priceIndex !== -1) {
-        priceDisplay[priceIndex].textContent = `= $${price.toFixed(4)}`;
+        priceDisplay[priceIndex].textContent = `= ${price.toFixed(4)}`;
     }
 };
 
