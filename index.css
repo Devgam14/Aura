@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Logo";
-    src: url("/bodwars/font.otf") format("opentype");
+    src: url("font.otf") format("opentype");
 }
 :root {
     --prim: #2b254b;
