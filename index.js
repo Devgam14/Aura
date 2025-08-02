@@ -80,6 +80,7 @@ const cryptoFetch = async () => {
             price: coin.current_price
         }));
         createListItems(cryptoDataStore, 'crypto');
+        console.log(data)
     } catch (e) {
         console.error("Could not fetch crypto data:", e);
     }
