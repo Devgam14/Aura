@@ -1,0 +1,342 @@
+@font-face {
+    font-family: "Logo";
+    src: url("/bodwars/font.otf") format("opentype");
+}
+:root {
+    --prim: #2b254b;
+    --sec: #f4ebe9;
+    --thrd: #ce967d;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Ubuntu", Monospace;
+    background: var(--prim);
+    /*  background: linear-gradient(to bottom, #0b4098, #87d028);*/
+}
+/*media query*/
+
+@media (min-width: 1200px) {
+    .container {
+    }
+}
+header {
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Logo", monospace;
+    position: fixed;
+    top: 0.1rem;
+    z-index: 100;
+    margin-top: -2%;
+    color: #d6dee0;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #d6dee0;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font: gray;
+    margin-left: 1rem;
+    padding-top: 0.6rem;
+    font-weight: 400;
+}
+.logo-span {
+    color: var(--thrd);
+    font-weight: 200;
+}
+.select {
+    margin: 6rem 20% 1rem 20%;
+    width: 60%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--sec);
+    border: 1px solid var(--sec);
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: 9px;
+}
+.select > input[type="radio"] {
+    display: none;
+}
+/*.select > input[type="radio"]:checked + label {
+    background: var(--thrd);
+    transform: translateY(1.6rem);
+}*/
+.select label {
+    /* width: 50%;*/
+    padding: 0.9rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin: 0 5%;
+    z-index: 2;
+    transition: 300ms ease-in;
+}
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 3rem;
+    border-radius: 8px;
+    transition: 0.5s ease;
+    background: var(--thrd);
+}
+.select > input#forex:checked ~ .slider {
+    transform: translateX(100%);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+.select > input#crypto:checked ~ .slider {
+    transform: translateX(0%);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+main {
+    display: block;
+    margin-top: 14vh;
+    justify-content: center;
+    align-items: center;
+    color: var(--sec);
+    height: 100vh;
+    z-index: -20;
+}
+.container {
+    border: 1px solid var(--sec);
+    border-radius: 12px;
+    width: 90vw;
+    box-shadow:
+        0 -3px 6px rgba(43, 37, 75, 0.1),
+        0 3px 6px rgba(206, 150, 125, 0.1);
+    margin: 1rem auto;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 70%;
+        height: auto;
+        margin: 2rem 15%;
+    }
+    .currList {
+        right: 40vw;
+        animation: leftover 1s;
+        width: 40vw;
+        height: 50vh;
+        left: 10vw;
+    }
+    main {
+        margin-top: 6vh;
+    }
+    .select {
+        width: 40%;
+        margin: 10rem 30% -1rem 30%;
+        border-radius: 9px;
+    }
+    .select label {
+        margin: 0 15%;
+        text-transform: uppercase;
+    }
+}
+@media (min-width: 1024px) {
+    header {
+        height: 10vh;
+        align-content: center;
+    }
+    .select {
+        margin-top: 16vh;
+    }
+    .container {
+        width: 50%;
+        margin: 3rem 26%;
+    }
+    .container > h3 {
+        font-size: 2rem;
+    }
+}
+
+main > .container > label {
+    font-size: 1.4rem;
+    color: black;
+    color: var(--sec);
+    display: block;
+    padding: 1rem 0 1.5rem 1rem;
+}
+main > .container > button {
+    padding: 1rem 0.6rem 0.6rem 0.6rem;
+    border: none;
+    width: 25%;
+    font-family:
+        "Logo",
+        "Ubuntu",
+        Times New Roman;
+    margin-bottom: 0.3rem;
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 1px;
+    /* background: linear-gradient(to right, #0B4098, #87D028);*/
+    color: white;
+    background: #ce967d;
+}
+main > .container > input[type="Number"] {
+    width: 64%;
+    height: 2.8rem;
+    border-bottom: 1px solid var(--sec);
+    text-align: right;
+    font-size: 1.8rem;
+    font-family: "Logo", Monospace;
+    font-weight: 300;
+    border-top: none;
+    border-right: none;
+    color: var(--sec);
+    border-left: none;
+    background: transparent;
+    outline: transparent;
+    margin: 0 0.1rem 0 0;
+    padding: 0.1rem 0 -1rem 0;
+}
+.price {
+    display: block;
+    text-align: right;
+    padding: 1rem 0.6rem 1rem 0rem;
+    font-weight: 400;
+}
+.currList {
+    /* width: 80vw;*/
+    position: fixed;
+    content: "";
+    top: 10vh;
+    right: 10vw;
+    display: none;
+    border-radius: 7px;
+    left: 10vw;
+    z-index: 1;
+    background: var(--sec);
+    bottom: 3vh;
+    height: 81%;
+    overflow-y: auto;
+    animation: pullup 1s;
+}
+@keyframes pullup {
+    from {
+        top: 99%;
+        bottom: 0%;
+    }
+    to {
+        top: 10%;
+        bottom: 5%;
+    }
+}
+@keyframes leftover {
+    from {
+        top: 0%;
+        left: 0%;
+        bottom: 0%;
+        right: -20%;
+    }
+    to {
+        left: 0%;
+        right: 60%;
+    }
+}
+.show {
+    display: block;
+}
+#cta {
+    width: 70vw;
+    text-transform: uppercase;
+    background: var(--thrd);
+    margin: 1rem 15vw;
+    font-family: "Logo", "Ubuntu", Sans-Serif;
+    padding: 1rem;
+    border: transparent;
+    color: var(--sec);
+    border-radius: 16px;
+    box-shadow:
+        0 -3px 6px rgba(43, 37, 75, 1),
+        0 3px 6px rgba(206, 150, 125, 0.1);
+    outline: transparent;
+}
+.currList > .searchDiv input[type="search"] {
+    width: 80%;
+    height: 8%;
+    margin: 1rem 10% 1.3rem 10%;
+    caret-color: var(--thrd);
+    border: none;
+    font-family: "Ubuntu", Monospace;
+    border-bottom: 1px solid black;
+    color: var(--prim);
+    font-size: 1rem;
+    outline: transparent;
+    background: transparent;
+    z-index: 30;
+}
+.currList > .searchDiv {
+    position: sticky;
+    top: 0%;
+    z-index: 20;
+    background: var(--sec);
+    width: 100%;
+}
+.currList > .searchDiv input::placeholder {
+    color: var(--prim);
+    font-size: 1rem;
+    z-index: 30;
+    text-align: center;
+}
+.mainc {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    border-radius: 50%;
+    align-items: center;
+    width: 15%;
+    z-index: 10;
+    height: 3rem;
+    padding: 0.3rem;
+    /*position: fixed;*/
+    margin-left: 80%;
+    margin-top: 6%;
+    margin-bottom: -7%;
+    position: relative;
+}
+.mainc > div {
+    background: var(--thrd);
+    width: 1.3rem;
+    height: 0.3rem;
+    border-radius: 8px;
+    position: absolute;
+    top: 20%;
+    transform-origin: center;
+}
+.mainc > div:nth-child(1) {
+    transform: rotate(45deg);
+}
+.mainc > div:nth-child(2) {
+    opacity: 0;
+}
+.mainc > div:nth-child(3) {
+    transform: rotate(-45deg);
+}
+li {
+    list-style: none;
+    padding: 1rem;
+    color: var(--thrd);
+    text-transform: uppercase;
+    margin-left: 1rem;
+}
+.showcurr {
+    overflow-y: auto;
+    height: auto;
+    padding: 1rem;
+}
