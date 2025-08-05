@@ -162,7 +162,7 @@ searchInput.addEventListener("input", (e) => {
 });
 
 // conversion logic
-convertBtn.addEventListener("click", () => {
+inputFields.addEventListener("input", () => {
     const fromInput = inputFields[0].value;
     const fromCurrency = buttons[0].textContent;
     const toCurrency = buttons[1].textContent;
