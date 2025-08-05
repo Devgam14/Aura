@@ -118,7 +118,7 @@ const fetchCryptoData = async () => {
       symbol: coin.symbol,
       price: coin.current_price
     }));
-    
+    console.log(data)
     renderCurrencyList(cryptoData, 'crypto');
     initDefaultCurrencies();
     convert(); // Initial conversion with defaults
